@@ -1,0 +1,34 @@
+.preview-carousel {
+  border: black solid 1px;
+}
+
+.carousel-header {
+  display: flex;
+}
+
+.carousel-options {
+  display: flex;
+  align-items: center;
+}
+
+.time-options,
+.media-type-options {
+  margin-left: 20px;
+}
+
+.carousel-preview-cards {
+  display: flex;
+  overflow-y: scroll;
+}
+
+.carousel-option-btn {
+  background-color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 5px 15px;
+}
+
+.option-chosed {
+  background-color: black;
+  color: gold;
+}
