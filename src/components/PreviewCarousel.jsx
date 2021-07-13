@@ -8,6 +8,12 @@ const PreviewCarousel = ({ text }) => {
   const [time, setTime] = useState("day");
   const [mediaType, setMediaType] = useState("movie");
   const [data, setData] = useState([]);
+  const [scrollX, setScrollX] = useState(0);
+
+  const refCarousel = useRef();
+  const SCROLL_BY_CLICK = 225 * 2;
+  const MIN_SCROLL_LIMIT = 0;
+  const MAX_SCROLL_LIMIT = 2700;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,15 +29,22 @@ const PreviewCarousel = ({ text }) => {
     };
 
     fetchData();
-
-    // return () => {
-    //     cleanup
-    // }
   }, [time, mediaType]);
 
-  //   const addClickedStyle = e => {
-  //     e.target.style = "color: red;";
-  //   };
+  const handleScrollClick = side => {
+    if (side === "left" && scrollX > MIN_SCROLL_LIMIT) {
+      setScrollX(scrollX - SCROLL_BY_CLICK);
+      refCarousel.current.scrollLeft = scrollX - SCROLL_BY_CLICK;
+    } else if (side === "right" && scrollX < MAX_SCROLL_LIMIT) {
+      setScrollX(scrollX + SCROLL_BY_CLICK);
+      refCarousel.current.scrollLeft = scrollX + SCROLL_BY_CLICK;
+    }
+  };
+
+  const resetScroll = () => {
+    setScrollX(MIN_SCROLL_LIMIT);
+    refCarousel.current.scrollLeft = MIN_SCROLL_LIMIT;
+  };
 
   return (
     <div className="preview-carousel">
@@ -49,7 +62,10 @@ const PreviewCarousel = ({ text }) => {
               </button>
             ) : (
               <button
-                onClick={() => setTime("day")}
+                onClick={() => {
+                  setTime("day");
+                  resetScroll();
+                }}
                 className="carousel-option-btn"
               >
                 Today
@@ -64,7 +80,10 @@ const PreviewCarousel = ({ text }) => {
               </button>
             ) : (
               <button
-                onClick={() => setTime("week")}
+                onClick={() => {
+                  setTime("week");
+                  resetScroll();
+                }}
                 className="carousel-option-btn"
               >
                 This Week
@@ -81,7 +100,10 @@ const PreviewCarousel = ({ text }) => {
               </button>
             ) : (
               <button
-                onClick={() => setMediaType("movie")}
+                onClick={() => {
+                  setMediaType("movie");
+                  resetScroll();
+                }}
                 className="carousel-option-btn"
               >
                 Movie
@@ -96,7 +118,10 @@ const PreviewCarousel = ({ text }) => {
               </button>
             ) : (
               <button
-                onClick={() => setMediaType("tv")}
+                onClick={() => {
+                  setMediaType("tv");
+                  resetScroll();
+                }}
                 className="carousel-option-btn"
               >
                 TV Show
@@ -105,7 +130,47 @@ const PreviewCarousel = ({ text }) => {
           </div>
         </div>
       </section>
-      <section className="carousel-preview-cards">
+      <section className="container-scroll-btns">
+        {scrollX === MIN_SCROLL_LIMIT ? (
+          <button
+            className="scroll-btn scroll-btn-left hidden"
+            onClick={e => {
+              handleScrollClick("left");
+            }}
+          >
+            {"<"}
+          </button>
+        ) : (
+          <button
+            className="scroll-btn scroll-btn-left"
+            onClick={e => {
+              handleScrollClick("left");
+            }}
+          >
+            {"<"}
+          </button>
+        )}
+        {scrollX === MAX_SCROLL_LIMIT ? (
+          <button
+            className="scroll-btn scroll-btn-right hidden"
+            onClick={e => {
+              handleScrollClick("right");
+            }}
+          >
+            {">"}
+          </button>
+        ) : (
+          <button
+            className="scroll-btn scroll-btn-right"
+            onClick={e => {
+              handleScrollClick("right");
+            }}
+          >
+            {">"}
+          </button>
+        )}
+      </section>
+      <section ref={refCarousel} className="carousel-preview-cards">
         {data.length === 20 ? (
           data.map((el, i) => (
             <CardItem

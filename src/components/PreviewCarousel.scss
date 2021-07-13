@@ -18,7 +18,8 @@
 
 .carousel-preview-cards {
   display: flex;
-  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 .carousel-option-btn {
@@ -31,4 +32,26 @@
 .option-chosed {
   background-color: black;
   color: gold;
+}
+
+.container-scroll-btns {
+  position: relative;
+  top: 165px;
+  display: flex;
+  justify-content: space-between;
+  //   padding: 0.4rem 0.25rem 0.25rem;
+  //   border-radius: 0.5rem;
+}
+
+.scroll-btn {
+  padding: 1rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: black;
+  opacity: 0.7;
+  color: white;
+}
+
+.hidden {
+  opacity: 0;
 }
