@@ -2,7 +2,7 @@ import React from "react";
 import { API_DATA } from "../App";
 import "./CardItem.scss";
 
-const CardItem = ({ title, poster }) => {
+const CardItem = ({ title, poster, vote }) => {
   return (
     <div className="container">
       <img
@@ -11,8 +11,10 @@ const CardItem = ({ title, poster }) => {
         height="278"
         className="carousel-img"
       ></img>
-
-      <p className="carousel-title">{title}</p>
+      <div className="container-info">
+        <p className="carousel-title">{title}</p>
+        <div className="carousel-vote">{vote}</div>
+      </div>
     </div>
   );
 };

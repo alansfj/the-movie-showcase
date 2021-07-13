@@ -48,7 +48,6 @@ const PreviewCarousel = ({ text }) => {
 
   return (
     <div className="preview-carousel">
-      <h3>Preview Carousel</h3>
       <section className="carousel-header">
         <p>{text}</p>
         <div className="carousel-options">
@@ -150,6 +149,7 @@ const PreviewCarousel = ({ text }) => {
             {"<"}
           </button>
         )}
+
         {scrollX === MAX_SCROLL_LIMIT ? (
           <button
             className="scroll-btn scroll-btn-right hidden"
@@ -179,6 +179,7 @@ const PreviewCarousel = ({ text }) => {
                 el.title || el.original_title || el.name || el.original_name
               }
               poster={el.poster_path}
+              vote={el.vote_average}
             />
           ))
         ) : (

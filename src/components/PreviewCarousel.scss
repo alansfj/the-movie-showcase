@@ -1,5 +1,6 @@
 .preview-carousel {
   border: black solid 1px;
+  position: relative;
 }
 
 .carousel-header {
@@ -35,12 +36,11 @@
 }
 
 .container-scroll-btns {
-  position: relative;
-  top: 165px;
+  position: absolute;
+  top: calc(50%);
   display: flex;
   justify-content: space-between;
-  //   padding: 0.4rem 0.25rem 0.25rem;
-  //   border-radius: 0.5rem;
+  width: 100%;
 }
 
 .scroll-btn {
@@ -51,6 +51,7 @@
   opacity: 0.7;
   color: white;
   cursor: pointer;
+  // display: inline;
   &:hover {
     opacity: 1;
   }
