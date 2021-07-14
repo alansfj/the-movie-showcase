@@ -13,7 +13,8 @@ const PreviewCarousel = ({ text, options, fetchDataFrom }) => {
   const refCarousel = useRef();
   const SCROLL_BY_CLICK = 225 * 2;
   const MIN_SCROLL_LIMIT = 0;
-  const MAX_SCROLL_LIMIT = 2700;
+  let MAX_SCROLL_LIMIT = 3000;
+  // console.log(MAX_SCROLL_LIMIT);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,6 +38,7 @@ const PreviewCarousel = ({ text, options, fetchDataFrom }) => {
   }, [time, mediaType]);
 
   const handleScrollClick = side => {
+    // let MAX_SCROLL_LIMIT = refCarousel.current.scrollWidth;
     if (side === "left" && scrollX > MIN_SCROLL_LIMIT) {
       setScrollX(scrollX - SCROLL_BY_CLICK);
       refCarousel.current.scrollLeft = scrollX - SCROLL_BY_CLICK;
@@ -44,6 +46,12 @@ const PreviewCarousel = ({ text, options, fetchDataFrom }) => {
       setScrollX(scrollX + SCROLL_BY_CLICK);
       refCarousel.current.scrollLeft = scrollX + SCROLL_BY_CLICK;
     }
+
+    // console.log(
+    //   refCarousel.current.scrollLeft,
+    //   refCarousel.current.scrollWidth,
+    //   MAX_SCROLL_LIMIT
+    // );
   };
 
   const resetScroll = () => {
@@ -159,7 +167,7 @@ const PreviewCarousel = ({ text, options, fetchDataFrom }) => {
           </button>
         )}
 
-        {scrollX === MAX_SCROLL_LIMIT ? (
+        {scrollX > MAX_SCROLL_LIMIT ? (
           <button
             className="scroll-btn scroll-btn-right hidden"
             onClick={e => {

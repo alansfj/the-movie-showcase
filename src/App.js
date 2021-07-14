@@ -1,5 +1,7 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import CardItem from "./components/CardItem";
 import Homepage from "./pages/Homepage";
+import Moviepage from "./pages/Moviepage";
 
 export const API_DATA = {
   API_BASE_URL: "https://api.themoviedb.org/3",
@@ -16,6 +18,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={Homepage} />
+          <Route path="/movies/:movieTitle" component={Moviepage} />
         </Switch>
       </Router>
     </div>
