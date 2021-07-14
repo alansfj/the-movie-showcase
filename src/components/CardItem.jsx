@@ -2,7 +2,7 @@ import React from "react";
 import { API_DATA } from "../App";
 import "./CardItem.scss";
 
-const CardItem = ({ title, poster, vote }) => {
+const CardItem = ({ title, poster, voteAverage, voteCount }) => {
   return (
     <div className="container">
       <img
@@ -13,7 +13,7 @@ const CardItem = ({ title, poster, vote }) => {
       ></img>
       <div className="container-info">
         <p className="carousel-title">{title}</p>
-        <div className="carousel-vote">{vote}</div>
+        <div className="carousel-vote-average">{voteAverage}</div>
       </div>
     </div>
   );

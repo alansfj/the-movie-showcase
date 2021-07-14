@@ -4,7 +4,7 @@ import CardItem from "./CardItem";
 import Loader from "./Loader";
 import "./PreviewCarousel.scss";
 
-const PreviewCarousel = ({ text }) => {
+const PreviewCarousel = ({ text, options, fetchDataFrom }) => {
   const [time, setTime] = useState("day");
   const [mediaType, setMediaType] = useState("movie");
   const [data, setData] = useState([]);
@@ -17,13 +17,18 @@ const PreviewCarousel = ({ text }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(
-        `https://api.themoviedb.org/3/trending/${mediaType}/${time}?api_key=${API_DATA.API_KEY}`
-      );
+      let res;
+      if (options) {
+        res = await fetch(
+          `https://api.themoviedb.org/3/trending/${mediaType}/${time}?api_key=${API_DATA.API_KEY}`
+        );
+      } else {
+        res = await fetch(`${fetchDataFrom}&api_key=${API_DATA.API_KEY}`);
+      }
 
       const res_json = await res.json();
 
-      //   console.log(res_json.results);
+      // console.log(res_json.results);
 
       setData(res_json.results);
     };
@@ -50,85 +55,89 @@ const PreviewCarousel = ({ text }) => {
     <div className="preview-carousel">
       <section className="carousel-header">
         <p>{text}</p>
-        <div className="carousel-options">
-          <div className="time-options">
-            {time === "day" ? (
-              <button
-                onClick={() => setTime("day")}
-                className="carousel-option-btn option-chosed"
-              >
-                Today
-              </button>
-            ) : (
-              <button
-                onClick={() => {
-                  setTime("day");
-                  resetScroll();
-                }}
-                className="carousel-option-btn"
-              >
-                Today
-              </button>
-            )}
-            {time === "week" ? (
-              <button
-                onClick={() => setTime("week")}
-                className="carousel-option-btn option-chosed"
-              >
-                This Week
-              </button>
-            ) : (
-              <button
-                onClick={() => {
-                  setTime("week");
-                  resetScroll();
-                }}
-                className="carousel-option-btn"
-              >
-                This Week
-              </button>
-            )}
+
+        {options && (
+          <div className="carousel-options">
+            <div className="time-options">
+              {time === "day" ? (
+                <button
+                  onClick={() => setTime("day")}
+                  className="carousel-option-btn option-chosed"
+                >
+                  Today
+                </button>
+              ) : (
+                <button
+                  onClick={() => {
+                    setTime("day");
+                    resetScroll();
+                  }}
+                  className="carousel-option-btn"
+                >
+                  Today
+                </button>
+              )}
+              {time === "week" ? (
+                <button
+                  onClick={() => setTime("week")}
+                  className="carousel-option-btn option-chosed"
+                >
+                  This Week
+                </button>
+              ) : (
+                <button
+                  onClick={() => {
+                    setTime("week");
+                    resetScroll();
+                  }}
+                  className="carousel-option-btn"
+                >
+                  This Week
+                </button>
+              )}
+            </div>
+            <div className="media-type-options">
+              {mediaType === "movie" ? (
+                <button
+                  onClick={() => setMediaType("movie")}
+                  className="carousel-option-btn option-chosed"
+                >
+                  Movie
+                </button>
+              ) : (
+                <button
+                  onClick={() => {
+                    setMediaType("movie");
+                    resetScroll();
+                  }}
+                  className="carousel-option-btn"
+                >
+                  Movie
+                </button>
+              )}
+              {mediaType === "tv" ? (
+                <button
+                  onClick={() => setMediaType("tv")}
+                  className="carousel-option-btn option-chosed"
+                >
+                  TV Show
+                </button>
+              ) : (
+                <button
+                  onClick={() => {
+                    setMediaType("tv");
+                    resetScroll();
+                  }}
+                  className="carousel-option-btn"
+                >
+                  TV Show
+                </button>
+              )}
+            </div>
           </div>
-          <div className="media-type-options">
-            {mediaType === "movie" ? (
-              <button
-                onClick={() => setMediaType("movie")}
-                className="carousel-option-btn option-chosed"
-              >
-                Movie
-              </button>
-            ) : (
-              <button
-                onClick={() => {
-                  setMediaType("movie");
-                  resetScroll();
-                }}
-                className="carousel-option-btn"
-              >
-                Movie
-              </button>
-            )}
-            {mediaType === "tv" ? (
-              <button
-                onClick={() => setMediaType("tv")}
-                className="carousel-option-btn option-chosed"
-              >
-                TV Show
-              </button>
-            ) : (
-              <button
-                onClick={() => {
-                  setMediaType("tv");
-                  resetScroll();
-                }}
-                className="carousel-option-btn"
-              >
-                TV Show
-              </button>
-            )}
-          </div>
-        </div>
+        )}
       </section>
+
       <section className="container-scroll-btns">
         {scrollX === MIN_SCROLL_LIMIT ? (
           <button
@@ -179,7 +188,8 @@ const PreviewCarousel = ({ text }) => {
                 el.title || el.original_title || el.name || el.original_name
               }
               poster={el.poster_path}
-              vote={el.vote_average}
+              voteAverage={el.vote_average}
+              voteCount={el.vote_count}
             />
           ))
         ) : (

@@ -16,7 +16,7 @@
   text-align: center;
 }
 
-.carousel-vote {
+.carousel-vote-average {
   display: inline-block;
   width: 2rem;
   height: 2rem;
@@ -31,4 +31,5 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
