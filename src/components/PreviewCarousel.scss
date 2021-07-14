@@ -51,7 +51,7 @@
   opacity: 0.7;
   color: white;
   cursor: pointer;
-  // display: inline;
+  z-index: 1;
   &:hover {
     opacity: 1;
   }

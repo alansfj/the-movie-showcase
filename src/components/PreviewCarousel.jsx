@@ -189,7 +189,6 @@ const PreviewCarousel = ({ text, options, fetchDataFrom }) => {
               }
               poster={el.poster_path}
               voteAverage={el.vote_average}
-              voteCount={el.vote_count}
             />
           ))
         ) : (
