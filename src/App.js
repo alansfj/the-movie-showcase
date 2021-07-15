@@ -1,5 +1,4 @@
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
-import CardItem from "./components/CardItem";
 import Homepage from "./pages/Homepage";
 import Moviepage from "./pages/Moviepage";
 
@@ -18,7 +17,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={Homepage} />
-          <Route path="/movies/:movieTitle" component={Moviepage} />
+          <Route path="/:media_type/:mediaId_Title" component={Moviepage} />
         </Switch>
       </Router>
     </div>

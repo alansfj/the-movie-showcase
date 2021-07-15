@@ -15,6 +15,7 @@
   border-radius: 20px;
   text-align: center;
   cursor: pointer;
+  // position: absolute;
 }
 
 .carousel-vote-average {
@@ -35,39 +36,11 @@
   position: relative;
 }
 
-/* Shrink */
-.hvr-shrink {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-property: transform;
-  transition-property: transform;
-}
-.hvr-shrink:hover,
-.hvr-shrink:focus,
-.hvr-shrink:active {
-  -webkit-transform: scale(0.9);
-  transform: scale(0.9);
-}
-
-/* Glow */
-.hvr-glow {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-property: box-shadow;
-  transition-property: box-shadow;
-}
-.hvr-glow:hover,
-.hvr-glow:focus,
-.hvr-glow:active {
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+.position-absolute {
+  position: absolute;
+  top: 50%;
+  left: 50px;
+  cursor: default;
+  border: gold solid 3px;
+  transform: translateY(-50%);
 }

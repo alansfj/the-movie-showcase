@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { API_DATA } from "../App";
 import CardItem from "./CardItem";
 import Loader from "./Loader";
@@ -190,14 +191,23 @@ const PreviewCarousel = ({ text, options, fetchDataFrom }) => {
       <section ref={refCarousel} className="carousel-preview-cards">
         {data.length === 20 ? (
           data.map((el, i) => (
-            <CardItem
-              key={i}
-              title={
-                el.title || el.original_title || el.name || el.original_name
+            <Link
+              to={
+                el.title
+                  ? `/movie/${el.id}-${el.title.replaceAll(" ", "_")}`
+                  : `/tv/${el.id}-${el.name.replaceAll(" ", "_")}`
               }
-              poster={el.poster_path}
-              voteAverage={el.vote_average}
-            />
+              className="hvr-shrink"
+            >
+              <CardItem
+                key={i}
+                title={el.title || el.original_title}
+                name={el.name || el.original_name}
+                poster={el.poster_path}
+                voteAverage={el.vote_average}
+                id={el.id}
+              />
+            </Link>
           ))
         ) : (
           <Loader />

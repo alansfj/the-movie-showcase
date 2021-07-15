@@ -1,0 +1,24 @@
+.container-media-general-info {
+  //   border: black solid 1px;
+  position: relative;
+}
+
+.backdrop-img {
+  width: 100%;
+
+  //   opacity: 0.5;
+}
+
+.img-filter {
+  background: black;
+  display: inline-block;
+  width: 100%;
+  height: calc(100% - 4px);
+  position: absolute;
+  top: 0;
+  opacity: 0.5;
+}
+
+.figure {
+  margin: 0;
+}
