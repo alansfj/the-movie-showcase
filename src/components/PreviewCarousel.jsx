@@ -192,6 +192,7 @@ const PreviewCarousel = ({ text, options, fetchDataFrom }) => {
         {data.length === 20 ? (
           data.map((el, i) => (
             <Link
+              key={i}
               to={
                 el.title
                   ? `/movie/${el.id}-${el.title.replaceAll(" ", "_")}`
@@ -200,7 +201,6 @@ const PreviewCarousel = ({ text, options, fetchDataFrom }) => {
               className="hvr-shrink"
             >
               <CardItem
-                key={i}
                 title={el.title || el.original_title}
                 name={el.name || el.original_name}
                 poster={el.poster_path}

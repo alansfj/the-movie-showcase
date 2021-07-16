@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { API_DATA } from "../App";
 import "./CardItem.scss";
 
@@ -19,4 +19,4 @@ const CardItem = ({ title, poster, voteAverage, name, addClass }) => {
   );
 };
 
-export default CardItem;
+export default memo(CardItem);
