@@ -15,6 +15,7 @@
   border-radius: 20px;
   text-align: center;
   cursor: pointer;
+  // width: 30%;
   // position: absolute;
 }
 
@@ -36,11 +37,11 @@
   position: relative;
 }
 
-.position-absolute {
-  position: absolute;
-  top: 50%;
-  left: 50px;
-  cursor: default;
-  border: gold solid 3px;
-  transform: translateY(-50%);
-}
+// .position-absolute {
+//   position: absolute;
+//   top: 50%;
+//   left: 50px;
+//   cursor: default;
+//   border: gold solid 3px;
+//   transform: translateY(-50%);
+// }

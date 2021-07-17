@@ -22,22 +22,55 @@ const MediaGeneralInfo = ({ id, mediaType }) => {
   }, []);
 
   return (
-    <div className="container-media-general-info">
-      <figure className="figure">
-        <div className="img-filter"></div>
-        <img
-          src={`${API_DATA.API_IMG_BASE_URL}original/${data.backdrop_path}`}
-          alt="1"
-          className="backdrop-img"
-        ></img>
-      </figure>
-      <CardItem
-        title={data.title || data.original_title}
-        poster={data.poster_path}
-        voteAverage={data.vote_average}
-        name={data.name || data.original_name}
-        addClass="position-absolute"
-      />
+    <div
+      className="container-media-general-info"
+      style={{
+        backgroundImage: `url(${API_DATA.API_IMG_BASE_URL}original/${data.backdrop_path})`,
+        backgroundSize: "cover",
+      }}
+    >
+      <div className="img-filter">
+        <div className="container-poster-info">
+          <img
+            src={`${API_DATA.API_IMG_BASE_URL}w342/${data.poster_path}`}
+            alt={"poster"}
+            className="poster-img"
+          />
+          <div className="media-info">
+            <h2 className="media-title">
+              {data.title ||
+                data.original_title ||
+                data.name ||
+                data.original_name}
+              <span className="release-date">
+                {" "}
+                {data.release_date
+                  ? `(${data.release_date}`.split("-")[0] + ")"
+                  : `(${data.first_air_date}`.split("-")[0] + ")"}
+              </span>
+            </h2>
+            {/* <p>{...data.genres}</p> */}
+            {data.genres &&
+              data.genres.map((el, i) => (
+                <span key={i} className="media-genres">
+                  {el.name + ", "}
+                </span>
+              ))}
+            <span>
+              {data.runtime && `${data.runtime}m`}
+              {data.episode_run_time && data.episode_run_time[0] + "m"}
+            </span>
+            <div className="media-vote-average">
+              Vote Average: {data.vote_average}
+            </div>
+            <p className="tagline">{data.tagline}</p>
+            <div className="overview">
+              <div className="overview-title">Overview</div>
+              <p className="overview-text">{data.overview}</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
