@@ -30,7 +30,7 @@ const PreviewCarousel = ({ text, options, fetchDataFrom }) => {
 
       const res_json = await res.json();
 
-      // console.log(res_json.results);
+      console.log(res_json.results);
 
       setData(res_json.results);
     };
@@ -54,6 +54,34 @@ const PreviewCarousel = ({ text, options, fetchDataFrom }) => {
     refCarousel.current.scrollLeft = MIN_SCROLL_LIMIT;
   };
 
+  const carouselOptions = {
+    carouselTimeOptions: [
+      {
+        id: 1,
+        title: "day",
+        label: "Today",
+      },
+      {
+        id: 2,
+        title: "week",
+        label: "This Week",
+      },
+    ],
+
+    carouselMediaTypeOptions: [
+      {
+        id: 1,
+        title: "movie",
+        label: "Movie",
+      },
+      {
+        id: 2,
+        title: "tv",
+        label: "TV Show",
+      },
+    ],
+  };
+
   return (
     <div className="preview-carousel">
       <section className="carousel-header">
@@ -61,54 +89,36 @@ const PreviewCarousel = ({ text, options, fetchDataFrom }) => {
         {options && (
           <div className="carousel-options">
             <div className="time-options">
-              <button
-                onClick={() => {
-                  setTime("day");
-                  resetScroll();
-                }}
-                className={`${
-                  time === "day" && "option-chosed"
-                } carousel-option-btn`}
-              >
-                Today
-              </button>
-
-              <button
-                onClick={() => {
-                  setTime("week");
-                  resetScroll();
-                }}
-                className={`${
-                  time === "week" && "option-chosed"
-                } carousel-option-btn `}
-              >
-                This Week
-              </button>
+              {carouselOptions.carouselTimeOptions.map(option => (
+                <button
+                  onClick={() => {
+                    setTime(option.title);
+                    resetScroll();
+                  }}
+                  className={`${
+                    time === option.title && "option-chosed"
+                  } carousel-option-btn`}
+                  key={options.id}
+                >
+                  {option.label}
+                </button>
+              ))}
             </div>
             <div className="media-type-options">
-              <button
-                onClick={() => {
-                  setMediaType("movie");
-                  resetScroll();
-                }}
-                className={`${
-                  mediaType === "movie" && "option-chosed"
-                } carousel-option-btn`}
-              >
-                Movie
-              </button>
-
-              <button
-                onClick={() => {
-                  setMediaType("tv");
-                  resetScroll();
-                }}
-                className={`${
-                  mediaType === "tv" && "option-chosed"
-                } carousel-option-btn`}
-              >
-                TV Show
-              </button>
+              {carouselOptions.carouselMediaTypeOptions.map(option => (
+                <button
+                  onClick={() => {
+                    setMediaType(option.title);
+                    resetScroll();
+                  }}
+                  className={`${
+                    mediaType === option.title && "option-chosed"
+                  } carousel-option-btn`}
+                  key={option.id}
+                >
+                  {option.label}
+                </button>
+              ))}
             </div>
           </div>
         )}
