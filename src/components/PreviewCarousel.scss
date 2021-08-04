@@ -58,11 +58,12 @@
 }
 
 .hidden {
-  opacity: 0;
+  // opacity: 0;
+  visibility: hidden;
   cursor: default;
-  &:hover {
-    opacity: 0;
-  }
+  // &:hover {
+  //   opacity: 0;
+  // }
 }
 
 /* Shrink */

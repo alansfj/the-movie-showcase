@@ -2,9 +2,9 @@ import React, { memo } from "react";
 import { API_DATA } from "../App";
 import "./CardItem.scss";
 
-const CardItem = ({ title, poster, voteAverage, name, addClass }) => {
+const CardItem = ({ title, poster, voteAverage, name }) => {
   return (
-    <div className={`container ${addClass}`}>
+    <div className="container">
       <img
         src={`${API_DATA.API_IMG_BASE_URL}w185/${poster}`}
         alt={title}

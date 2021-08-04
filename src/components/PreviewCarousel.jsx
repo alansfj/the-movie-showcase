@@ -146,7 +146,6 @@ const PreviewCarousel = ({ text, options, fetchDataFrom }) => {
           </div>
         )}
       </section>
-
       <section className="container-scroll-btns">
         {scrollX === MIN_SCROLL_LIMIT ? (
           <button
@@ -193,11 +192,7 @@ const PreviewCarousel = ({ text, options, fetchDataFrom }) => {
           data.map((el, i) => (
             <Link
               key={i}
-              to={
-                el.title
-                  ? `/movie/${el.id}-${el.title.replaceAll(" ", "_")}`
-                  : `/tv/${el.id}-${el.name.replaceAll(" ", "_")}`
-              }
+              to={el.title ? `/movie/${el.id}` : `/tv/${el.id}`}
               className="hvr-shrink"
             >
               <CardItem

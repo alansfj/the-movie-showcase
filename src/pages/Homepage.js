@@ -4,7 +4,6 @@ import PreviewCarousel from "../components/PreviewCarousel";
 const Homepage = () => {
   return (
     <div className="main-content">
-      <h2>Homepage</h2>
       <PreviewCarousel text="Trending" options />
       <PreviewCarousel
         text="The Most Voted Movies"

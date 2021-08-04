@@ -1,4 +1,6 @@
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import Header from "./components/Header";
+import Catalog from "./pages/Catalog";
 import Homepage from "./pages/Homepage";
 import Moviepage from "./pages/Moviepage";
 
@@ -15,9 +17,11 @@ function App() {
   return (
     <div>
       <Router>
+        <Header />
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route path="/:media_type/:mediaId_Title" component={Moviepage} />
+          <Route path="/:media_type" component={Catalog} />
         </Switch>
       </Router>
     </div>
