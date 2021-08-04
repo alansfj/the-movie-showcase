@@ -47,12 +47,6 @@ const PreviewCarousel = ({ text, options, fetchDataFrom }) => {
       setScrollX(scrollX + SCROLL_BY_CLICK);
       refCarousel.current.scrollLeft = scrollX + SCROLL_BY_CLICK;
     }
-
-    // console.log(
-    //   refCarousel.current.scrollLeft,
-    //   refCarousel.current.scrollWidth,
-    //   MAX_SCROLL_LIMIT
-    // );
   };
 
   const resetScroll = () => {
@@ -64,128 +58,82 @@ const PreviewCarousel = ({ text, options, fetchDataFrom }) => {
     <div className="preview-carousel">
       <section className="carousel-header">
         <p>{text}</p>
-
         {options && (
           <div className="carousel-options">
             <div className="time-options">
-              {time === "day" ? (
-                <button
-                  onClick={() => setTime("day")}
-                  className="carousel-option-btn option-chosed"
-                >
-                  Today
-                </button>
-              ) : (
-                <button
-                  onClick={() => {
-                    setTime("day");
-                    resetScroll();
-                  }}
-                  className="carousel-option-btn"
-                >
-                  Today
-                </button>
-              )}
-              {time === "week" ? (
-                <button
-                  onClick={() => setTime("week")}
-                  className="carousel-option-btn option-chosed"
-                >
-                  This Week
-                </button>
-              ) : (
-                <button
-                  onClick={() => {
-                    setTime("week");
-                    resetScroll();
-                  }}
-                  className="carousel-option-btn"
-                >
-                  This Week
-                </button>
-              )}
+              <button
+                onClick={() => {
+                  setTime("day");
+                  resetScroll();
+                }}
+                className={`${
+                  time === "day" && "option-chosed"
+                } carousel-option-btn`}
+              >
+                Today
+              </button>
+
+              <button
+                onClick={() => {
+                  setTime("week");
+                  resetScroll();
+                }}
+                className={`${
+                  time === "week" && "option-chosed"
+                } carousel-option-btn `}
+              >
+                This Week
+              </button>
             </div>
             <div className="media-type-options">
-              {mediaType === "movie" ? (
-                <button
-                  onClick={() => setMediaType("movie")}
-                  className="carousel-option-btn option-chosed"
-                >
-                  Movie
-                </button>
-              ) : (
-                <button
-                  onClick={() => {
-                    setMediaType("movie");
-                    resetScroll();
-                  }}
-                  className="carousel-option-btn"
-                >
-                  Movie
-                </button>
-              )}
-              {mediaType === "tv" ? (
-                <button
-                  onClick={() => setMediaType("tv")}
-                  className="carousel-option-btn option-chosed"
-                >
-                  TV Show
-                </button>
-              ) : (
-                <button
-                  onClick={() => {
-                    setMediaType("tv");
-                    resetScroll();
-                  }}
-                  className="carousel-option-btn"
-                >
-                  TV Show
-                </button>
-              )}
+              <button
+                onClick={() => {
+                  setMediaType("movie");
+                  resetScroll();
+                }}
+                className={`${
+                  mediaType === "movie" && "option-chosed"
+                } carousel-option-btn`}
+              >
+                Movie
+              </button>
+
+              <button
+                onClick={() => {
+                  setMediaType("tv");
+                  resetScroll();
+                }}
+                className={`${
+                  mediaType === "tv" && "option-chosed"
+                } carousel-option-btn`}
+              >
+                TV Show
+              </button>
             </div>
           </div>
         )}
       </section>
       <section className="container-scroll-btns">
-        {scrollX === MIN_SCROLL_LIMIT ? (
-          <button
-            className="scroll-btn scroll-btn-left hidden"
-            onClick={e => {
-              handleScrollClick("left");
-            }}
-          >
-            {"<"}
-          </button>
-        ) : (
-          <button
-            className="scroll-btn scroll-btn-left"
-            onClick={e => {
-              handleScrollClick("left");
-            }}
-          >
-            {"<"}
-          </button>
-        )}
-
-        {scrollX > MAX_SCROLL_LIMIT ? (
-          <button
-            className="scroll-btn scroll-btn-right hidden"
-            onClick={e => {
-              handleScrollClick("right");
-            }}
-          >
-            {">"}
-          </button>
-        ) : (
-          <button
-            className="scroll-btn scroll-btn-right"
-            onClick={e => {
-              handleScrollClick("right");
-            }}
-          >
-            {">"}
-          </button>
-        )}
+        <button
+          className={`${
+            scrollX === MIN_SCROLL_LIMIT && "hidden"
+          } scroll-btn scroll-btn-left`}
+          onClick={e => {
+            handleScrollClick("left");
+          }}
+        >
+          {"<"}
+        </button>
+        <button
+          className={`${
+            scrollX > MAX_SCROLL_LIMIT && "hidden"
+          } scroll-btn scroll-btn-right`}
+          onClick={e => {
+            handleScrollClick("right");
+          }}
+        >
+          {">"}
+        </button>
       </section>
       <section ref={refCarousel} className="carousel-preview-cards">
         {data.length === 20 ? (
