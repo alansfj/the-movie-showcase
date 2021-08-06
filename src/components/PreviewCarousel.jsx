@@ -34,7 +34,7 @@ const PreviewCarousel = ({ text, options, fetchDataFrom, language, texts }) => {
 
       const res_json = await res.json();
 
-      console.log(res_json.results);
+      // console.log(res_json.results);
 
       setData(res_json.results);
     };

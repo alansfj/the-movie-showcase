@@ -12,7 +12,7 @@ const Header = ({ setLanguage, texts, setTexts, languagesObject }) => {
 
   return (
     <div className="header">
-      <div className="main-content header-container">
+      <div className="header-container main-content">
         <div className="catalog-btns">
           <Link
             to="/"

@@ -7,7 +7,7 @@ const Moviepage = ({ language, texts }) => {
   const { mediaId_Title } = useParams();
 
   return (
-    <div className="main-content">
+    <div className="main-content" style={{ marginTop: "0" }}>
       <MediaGeneralInfo
         id={mediaId_Title.split("-")[0]}
         mediaType={media_type}

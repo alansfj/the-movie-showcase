@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Catalog from "./pages/Catalog";
 import Homepage from "./pages/Homepage";
@@ -28,6 +29,7 @@ const languagesObject = {
     votedTv: "Las Series más Votadas",
     voteAverage: "Votación Promedio",
     overview: "Sinopsis",
+    footer: "Toda la información mostrada es propiedad de TMDb",
   },
   en: {
     moviesString: "Movies",
@@ -40,6 +42,7 @@ const languagesObject = {
     votedTv: "The Most Voted TV Shows",
     voteAverage: "Vote Average",
     overview: "Overview",
+    footer: "All information displayed is property of TMDb",
   },
 };
 
@@ -48,7 +51,7 @@ function App() {
   const [texts, setTexts] = useState(languagesObject[language]);
 
   return (
-    <div>
+    <div className="app">
       <Router>
         <Header
           setLanguage={setLanguage}
@@ -67,6 +70,7 @@ function App() {
             <Catalog language={language} />
           </Route>
         </Switch>
+        <Footer texts={texts} />
       </Router>
     </div>
   );

@@ -15,7 +15,7 @@ const MediaGeneralInfo = ({ id, mediaType, language, texts }) => {
       );
       const res_json = await res.json();
 
-      console.log(res_json);
+      // console.log(res_json);
 
       setData(res_json);
     };
