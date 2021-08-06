@@ -3,13 +3,15 @@ import { API_DATA } from "../App";
 import PageNotFound from "../pages/PageNotFound";
 import "./MediaGeneralInfo.scss";
 
-const MediaGeneralInfo = ({ id, mediaType }) => {
+const MediaGeneralInfo = ({ id, mediaType, language, texts }) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch(
-        `${API_DATA.API_BASE_URL}/${mediaType}/${id}?api_key=${API_DATA.API_KEY}`
+        `${API_DATA.API_BASE_URL}/${mediaType}/${id}?api_key=${
+          API_DATA.API_KEY
+        }&language=${language === "es" ? "es-MX" : language}`
       );
       const res_json = await res.json();
 
@@ -19,7 +21,7 @@ const MediaGeneralInfo = ({ id, mediaType }) => {
     };
 
     fetchData();
-  }, [id, mediaType]);
+  }, [id, mediaType, language]);
 
   return (
     <>
@@ -67,11 +69,11 @@ const MediaGeneralInfo = ({ id, mediaType }) => {
                   {data.episode_run_time && data.episode_run_time[0] + "m"}
                 </span>
                 <div className="media-vote-average">
-                  Vote Average: {data.vote_average}
+                  {texts.voteAverage}: {data.vote_average}
                 </div>
                 <p className="tagline">{data.tagline}</p>
                 <div className="overview">
-                  <div className="overview-title">Overview</div>
+                  <div className="overview-title">{texts.overview}</div>
                   <p className="overview-text">{data.overview}</p>
                 </div>
               </div>

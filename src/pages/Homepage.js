@@ -1,17 +1,26 @@
 import React from "react";
 import PreviewCarousel from "../components/PreviewCarousel";
 
-const Homepage = () => {
+const Homepage = ({ language, texts }) => {
   return (
     <div className="main-content">
-      <PreviewCarousel text="Trending" options />
       <PreviewCarousel
-        text="The Most Voted Movies"
-        fetchDataFrom="https://api.themoviedb.org/3/discover/movie/?sort_by=vote_count.desc"
+        text={texts.trending}
+        options
+        language={language}
+        texts={texts}
       />
       <PreviewCarousel
-        text="The Most Voted TV Shows"
+        text={texts.votedMovies}
+        fetchDataFrom="https://api.themoviedb.org/3/discover/movie/?sort_by=vote_count.desc"
+        language={language}
+        texts={texts}
+      />
+      <PreviewCarousel
+        text={texts.votedTv}
         fetchDataFrom="https://api.themoviedb.org/3/discover/tv/?sort_by=vote_count.desc"
+        language={language}
+        texts={texts}
       />
     </div>
   );

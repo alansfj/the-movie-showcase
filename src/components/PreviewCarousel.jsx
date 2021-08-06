@@ -5,7 +5,7 @@ import CardItem from "./CardItem";
 import Loader from "./Loader";
 import "./PreviewCarousel.scss";
 
-const PreviewCarousel = ({ text, options, fetchDataFrom }) => {
+const PreviewCarousel = ({ text, options, fetchDataFrom, language, texts }) => {
   const [time, setTime] = useState("day");
   const [mediaType, setMediaType] = useState("movie");
   const [data, setData] = useState([]);
@@ -22,21 +22,25 @@ const PreviewCarousel = ({ text, options, fetchDataFrom }) => {
       let res;
       if (options) {
         res = await fetch(
-          `https://api.themoviedb.org/3/trending/${mediaType}/${time}?api_key=${API_DATA.API_KEY}`
+          `https://api.themoviedb.org/3/trending/${mediaType}/${time}?api_key=${
+            API_DATA.API_KEY
+          }&language=${language === "es" ? "es-MX" : language}`
         );
       } else {
-        res = await fetch(`${fetchDataFrom}&api_key=${API_DATA.API_KEY}`);
+        res = await fetch(
+          `${fetchDataFrom}&api_key=${API_DATA.API_KEY}&language=${language}`
+        );
       }
 
       const res_json = await res.json();
 
-      // console.log(res_json.results);
+      console.log(res_json.results);
 
       setData(res_json.results);
     };
 
     fetchData();
-  }, [time, mediaType]);
+  }, [time, mediaType, language]);
 
   const handleScrollClick = side => {
     // let MAX_SCROLL_LIMIT = refCarousel.current.scrollWidth;
@@ -59,12 +63,12 @@ const PreviewCarousel = ({ text, options, fetchDataFrom }) => {
       {
         id: 1,
         title: "day",
-        label: "Today",
+        label: texts.todayBtnLabel,
       },
       {
         id: 2,
         title: "week",
-        label: "This Week",
+        label: texts.weekBtnLabel,
       },
     ],
 
@@ -72,12 +76,12 @@ const PreviewCarousel = ({ text, options, fetchDataFrom }) => {
       {
         id: 1,
         title: "movie",
-        label: "Movie",
+        label: texts.moviesString,
       },
       {
         id: 2,
         title: "tv",
-        label: "TV Show",
+        label: texts.tvString,
       },
     ],
   };
