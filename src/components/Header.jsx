@@ -1,14 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
+import languageContext from "../context/languageContext";
 import "./Header.scss";
 
-const Header = ({ setLanguage, texts, setTexts, languagesObject }) => {
+const Header = () => {
   let location = useLocation();
 
-  const changeLanguage = e => {
-    setLanguage(e.target.value);
-    setTexts(languagesObject[e.target.value]);
-  };
+  const { texts, changeLanguage } = useContext(languageContext);
 
   return (
     <div className="header">

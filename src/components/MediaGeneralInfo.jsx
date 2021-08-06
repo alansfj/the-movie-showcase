@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { API_DATA } from "../App";
+import languageContext from "../context/languageContext";
 import PageNotFound from "../pages/PageNotFound";
 import "./MediaGeneralInfo.scss";
 
-const MediaGeneralInfo = ({ id, mediaType, language, texts }) => {
+const MediaGeneralInfo = ({ id, mediaType }) => {
   const [data, setData] = useState([]);
+
+  const { texts, language } = useContext(languageContext);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -57,7 +60,6 @@ const MediaGeneralInfo = ({ id, mediaType, language, texts }) => {
                       : `(${data.first_air_date}`.split("-")[0] + ")"}
                   </span>
                 </h2>
-                {/* <p>{...data.genres}</p> */}
                 {data.genres &&
                   data.genres.map((el, i) => (
                     <span key={i} className="media-genres">

@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import languageContext from "../context/languageContext";
 import "./Footer.scss";
 
-const Footer = ({ texts }) => {
+const Footer = () => {
+  const { texts } = useContext(languageContext);
+
   return (
     <div className="footer">
       <p>{texts.footer}</p>

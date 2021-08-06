@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import languageContext from "../context/languageContext";
 
-const PageNotFound = ({ texts }) => {
+const PageNotFound = () => {
+  const { texts } = useContext(languageContext);
+
   return (
     <div className="main-content">
       <h2>{texts.pageNotFound}</h2>

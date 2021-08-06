@@ -1,12 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { Link } from "react-router-dom";
 import { API_DATA } from "../App";
+import languageContext from "../context/languageContext";
 import CardItem from "./CardItem";
 import Loader from "./Loader";
 import "./PreviewCarousel.scss";
 
-const PreviewCarousel = ({ text, options, fetchDataFrom, language, texts }) => {
+const PreviewCarousel = ({ text, options, fetchDataFrom }) => {
   const [time, setTime] = useState("day");
   const [mediaType, setMediaType] = useState("movie");
   const [data, setData] = useState([]);
@@ -17,6 +18,8 @@ const PreviewCarousel = ({ text, options, fetchDataFrom, language, texts }) => {
   const MIN_SCROLL_LIMIT = 0;
   let MAX_SCROLL_LIMIT = 3000;
   // console.log(MAX_SCROLL_LIMIT);
+
+  const { texts, language } = useContext(languageContext);
 
   useEffect(() => {
     const fetchData = async () => {
