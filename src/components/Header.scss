@@ -19,7 +19,12 @@
 
 .catalog-btns > a {
   height: auto;
-  margin: 0 1rem;
   line-height: 2.5rem;
   cursor: pointer;
+  padding: 0 1rem;
+}
+
+.option-chosed {
+  background-color: black;
+  color: gold;
 }

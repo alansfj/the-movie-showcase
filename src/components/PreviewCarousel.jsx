@@ -30,7 +30,7 @@ const PreviewCarousel = ({ text, options, fetchDataFrom }) => {
 
       const res_json = await res.json();
 
-      console.log(res_json.results);
+      // console.log(res_json.results);
 
       setData(res_json.results);
     };
@@ -98,7 +98,7 @@ const PreviewCarousel = ({ text, options, fetchDataFrom }) => {
                   className={`${
                     time === option.title && "option-chosed"
                   } carousel-option-btn`}
-                  key={options.id}
+                  key={option.id}
                 >
                   {option.label}
                 </button>

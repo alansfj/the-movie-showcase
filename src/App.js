@@ -21,7 +21,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route path="/:media_type/:mediaId_Title" component={Moviepage} />
-          <Route path="/:media_type" component={Catalog} />
+          <Route exact path="/:media_type" component={Catalog} />
         </Switch>
       </Router>
     </div>

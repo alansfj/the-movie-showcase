@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { API_DATA } from "../App";
+import PageNotFound from "../pages/PageNotFound";
 import "./MediaGeneralInfo.scss";
 
 const MediaGeneralInfo = ({ id, mediaType }) => {
@@ -23,7 +24,7 @@ const MediaGeneralInfo = ({ id, mediaType }) => {
   return (
     <>
       {data.status_code === 34 ? (
-        <h2>{data.status_message}</h2>
+        <PageNotFound />
       ) : (
         <div
           className="container-media-general-info"
