@@ -30,6 +30,7 @@ const languagesObject = {
     voteAverage: "Votación Promedio",
     overview: "Sinopsis",
     footer: "Toda la información mostrada es propiedad de TMDb",
+    pageNotFound: "Error 404. Página no encontrada",
   },
   en: {
     moviesString: "Movies",
@@ -43,6 +44,7 @@ const languagesObject = {
     voteAverage: "Vote Average",
     overview: "Overview",
     footer: "All information displayed is property of TMDb",
+    pageNotFound: "Error 404. Page not found.",
   },
 };
 
@@ -67,7 +69,7 @@ function App() {
             <Moviepage language={language} texts={texts} />
           </Route>
           <Route path="/:media_type">
-            <Catalog language={language} />
+            <Catalog texts={texts} />
           </Route>
         </Switch>
         <Footer texts={texts} />

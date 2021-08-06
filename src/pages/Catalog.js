@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import PageNotFound from "./PageNotFound";
 
-const Catalog = () => {
+const Catalog = ({ texts }) => {
   const { media_type } = useParams();
 
   useEffect(() => {}, [media_type]);
@@ -12,7 +12,7 @@ const Catalog = () => {
       {media_type === "movie" || media_type === "tv" ? (
         <h2>Catalog</h2>
       ) : (
-        <PageNotFound />
+        <PageNotFound texts={texts} />
       )}
     </div>
   );
