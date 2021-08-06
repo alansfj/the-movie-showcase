@@ -36,8 +36,8 @@ const Header = ({ setLanguage, texts, setTexts, languagesObject }) => {
         <div className="language-select">
           <label htmlFor="languages">{texts.headerLanguage} </label>
           <select name="language" id="languages" onChange={changeLanguage}>
-            <option value="es">ES</option>
             <option value="en">EN</option>
+            <option value="es">ES</option>
           </select>
         </div>
       </div>

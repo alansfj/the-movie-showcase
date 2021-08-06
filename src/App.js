@@ -14,7 +14,7 @@ export const API_DATA = {
   API_SECURE_IMG_BASE_URL: "https://image.tmdb.org/t/p/",
 };
 
-const initialLanguage = "es";
+const initialLanguage = "en";
 
 const languagesObject = {
   es: {
