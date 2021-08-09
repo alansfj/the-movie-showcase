@@ -22,15 +22,9 @@ function App() {
         <Router>
           <Header />
           <Switch>
-            <Route exact path="/">
-              <Homepage />
-            </Route>
-            <Route path="/:media_type/:mediaId_Title">
-              <Moviepage />
-            </Route>
-            <Route path="/:media_type">
-              <Catalog />
-            </Route>
+            <Route exact path="/" component={Homepage} />
+            <Route path="/:media_type/:mediaId_Title" component={Moviepage} />
+            <Route path="/:media_type" component={Catalog} />
           </Switch>
           <Footer />
         </Router>
