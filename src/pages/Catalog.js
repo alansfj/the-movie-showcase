@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import PreviewCatalog from "../components/PreviewCatalog";
 
 import PageNotFound from "./PageNotFound";
 
@@ -11,7 +12,7 @@ const Catalog = () => {
   return (
     <div className="main-content">
       {media_type === "movie" || media_type === "tv" ? (
-        <h2>Catalog</h2>
+        <PreviewCatalog />
       ) : (
         <PageNotFound />
       )}

@@ -20,13 +20,13 @@ const Header = () => {
           </Link>
           <Link
             to="/movie"
-            className={`${location.pathname === "/movie" && "option-chosed"}`}
+            className={`${location.pathname.match(/movie/) && "option-chosed"}`}
           >
             {texts.moviesString}
           </Link>
           <Link
             to="/tv"
-            className={`${location.pathname === "/tv" && "option-chosed"}`}
+            className={`${location.pathname.match(/tv/) && "option-chosed"}`}
           >
             {texts.tvString}
           </Link>

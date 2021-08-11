@@ -1,0 +1,18 @@
+.btns-container {
+  text-align: center;
+  margin-top: 20px;
+
+  & > button {
+    font-size: 1.3rem;
+    padding: 5px;
+    margin: 0 5px;
+    min-width: 34px;
+    background-color: gold;
+    border: none;
+    border-radius: 3px;
+  }
+
+  & > .actual-btn {
+    border: black 3px solid;
+  }
+}

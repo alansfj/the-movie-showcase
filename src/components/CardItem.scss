@@ -15,8 +15,13 @@
   border-radius: 20px;
   text-align: center;
   cursor: pointer;
+  max-width: 188px;
   // width: 30%;
   // position: absolute;
+}
+
+.catalog {
+  margin: 0;
 }
 
 .carousel-vote-average {
