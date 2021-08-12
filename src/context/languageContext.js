@@ -17,6 +17,8 @@ const languagesObject = {
     overview: "Sinopsis",
     footer: "Toda la información mostrada es propiedad de TMDb",
     pageNotFound: "Error 404. Página no encontrada",
+    catalogBtnPrevious: "Anterior",
+    catalogBtnNext: "Siguiente",
   },
   en: {
     moviesString: "Movies",
@@ -31,6 +33,8 @@ const languagesObject = {
     overview: "Overview",
     footer: "All information displayed is property of TMDb",
     pageNotFound: "Error 404. Page not found.",
+    catalogBtnPrevious: "Previous",
+    catalogBtnNext: "Next",
   },
 };
 

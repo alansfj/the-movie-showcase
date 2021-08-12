@@ -6,7 +6,11 @@ const CardItem = ({ title, poster, voteAverage, name, catalog }) => {
   return (
     <div className={`${catalog && "catalog"} container`}>
       <img
-        src={`${API_DATA.API_IMG_BASE_URL}w185/${poster}`}
+        src={
+          poster
+            ? `${API_DATA.API_IMG_BASE_URL}w185/${poster}`
+            : `https://via.placeholder.com/185x278.png?text=No+Image`
+        }
         alt={title}
         height="278"
         className="carousel-img"

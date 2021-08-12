@@ -1,18 +1,90 @@
 .btns-container {
   text-align: center;
-  margin-top: 20px;
+  position: relative;
+
+  & > .invisible {
+    height: 1rem;
+  }
 
   & > button {
     font-size: 1.3rem;
     padding: 5px;
     margin: 0 5px;
     min-width: 34px;
-    background-color: gold;
+    background-color: #ffd70070;
     border: none;
     border-radius: 3px;
+    cursor: pointer;
   }
 
   & > .actual-btn {
-    border: black 3px solid;
+    background-color: #ffd700;
+    cursor: auto;
+    position: absolute;
+    left: calc(50%);
   }
+
+  & > .m1 {
+    position: absolute;
+    left: calc(50% - 50px);
+  }
+
+  & > .p1 {
+    position: absolute;
+    left: calc(50% + 50px);
+  }
+
+  & > .m2 {
+    position: absolute;
+    left: calc(50% - 100px);
+  }
+
+  & > .p2 {
+    position: absolute;
+    left: calc(50% + 100px);
+  }
+
+  & > .m3 {
+    position: absolute;
+    left: calc(50% - 150px);
+  }
+
+  & > .p3 {
+    position: absolute;
+    left: calc(50% + 150px);
+  }
+
+  & > .m4 {
+    position: absolute;
+    left: calc(50% - 200px);
+  }
+
+  & > .p4 {
+    position: absolute;
+    left: calc(50% + 200px);
+  }
+
+  & > .first {
+    position: absolute;
+    left: calc(50% - 250px);
+  }
+
+  & > .last {
+    position: absolute;
+    left: calc(50% + 250px);
+  }
+
+  & > .previous {
+    position: absolute;
+    left: calc(50% - 352px);
+  }
+
+  & > .next {
+    position: absolute;
+    left: calc(50% + 310px);
+  }
+}
+
+button:hover {
+  background-color: #ffd700;
 }

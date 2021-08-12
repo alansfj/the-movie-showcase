@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { API_DATA } from "../App";
 import languageContext from "../context/languageContext";
+import pageContext from "../context/pageContext";
 import ButtonsCatalog from "./ButtonsCatalog";
 import CardItem from "./CardItem";
 import Loader from "./Loader";
@@ -10,24 +11,19 @@ import "./PreviewCatalog.scss";
 const PreviewCatalog = () => {
   const location = useLocation();
   const [data, setData] = useState([]);
-  const [page, setPage] = useState(1);
 
+  const { page } = useContext(pageContext);
   const { language } = useContext(languageContext);
-  console.log(location);
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(
+      let res = await fetch(
         `${API_DATA.API_BASE_URL}/discover${location.pathname}?api_key=${
           API_DATA.API_KEY
-        }&language=${language === "es" ? "es-MX" : language}&page=${
-          location.search.split("=")[1]
-        }`
+        }&language=${language === "es" ? "es-MX" : language}&page=${page}`
       );
 
       const res_json = await res.json();
-
-      //   console.log(res_json);
 
       setData(res_json.results);
     };
@@ -37,7 +33,8 @@ const PreviewCatalog = () => {
 
   return (
     <div>
-      <h2>Preview Catalog {location.pathname}</h2>
+      <ButtonsCatalog />
+
       <div className="grid-container">
         {data.length === 20 ? (
           data.map((el, i) => (
@@ -60,7 +57,7 @@ const PreviewCatalog = () => {
           <Loader />
         )}
       </div>
-      <ButtonsCatalog page={page} setPage={setPage} />
+      <ButtonsCatalog />
     </div>
   );
 };
