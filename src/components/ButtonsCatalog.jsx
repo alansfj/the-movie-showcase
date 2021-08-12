@@ -58,33 +58,26 @@ const ButtonsCatalog = () => {
       <button onClick={e => handleClick(e)} className="actual-btn">
         {page}
       </button>
-      {page > 499 ? (
-        ""
-      ) : (
+
+      {!(page > 499) && (
         <button onClick={e => handleClick(e, 1)} className="p1">
           {page + 1}
         </button>
       )}
 
-      {page > 498 ? (
-        ""
-      ) : (
+      {!(page > 498) && (
         <button onClick={e => handleClick(e, 2)} className="p2">
           {page + 2}
         </button>
       )}
 
-      {page > 497 ? (
-        ""
-      ) : (
+      {!(page > 497) && (
         <button onClick={e => handleClick(e, 3)} className="p3">
           {page + 3}
         </button>
       )}
 
-      {page > 496 ? (
-        ""
-      ) : (
+      {!(page > 496) && (
         <button onClick={e => handleClick(e, 4)} className="p4">
           {page + 4}
         </button>
@@ -96,9 +89,7 @@ const ButtonsCatalog = () => {
         </button>
       )}
 
-      {page > 499 ? (
-        ""
-      ) : (
+      {!(page > 499) && (
         <button onClick={e => handleClick(e, 1)} className="next">
           {texts.catalogBtnNext}
         </button>
