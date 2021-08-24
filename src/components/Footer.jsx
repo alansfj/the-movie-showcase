@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import languageContext from "../context/languageContext";
-import "./Footer.scss";
+import "../sass/Footer.scss";
 
 const Footer = () => {
   const { texts } = useContext(languageContext);

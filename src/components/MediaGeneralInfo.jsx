@@ -3,7 +3,7 @@ import { API_DATA } from "../App";
 import languageContext from "../context/languageContext";
 import MenuBtnContext from "../context/menuBtnContext";
 import PageNotFound from "../pages/PageNotFound";
-import "./MediaGeneralInfo.scss";
+import "../sass/MediaGeneralInfo.scss";
 
 const MediaGeneralInfo = ({ id, mediaType }) => {
   const [data, setData] = useState([]);

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import languageContext from "../context/languageContext";
 import MenuBtnContext from "../context/menuBtnContext";
-import "./Header.scss";
+import "../sass/Header.scss";
 
 const Header = () => {
   let location = useLocation();

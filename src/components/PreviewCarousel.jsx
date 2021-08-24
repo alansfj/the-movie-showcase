@@ -6,7 +6,7 @@ import languageContext from "../context/languageContext";
 import MenuBtnContext from "../context/menuBtnContext";
 import CardItem from "./CardItem";
 import Loader from "./Loader";
-import "./PreviewCarousel.scss";
+import "../sass/PreviewCarousel.scss";
 
 const PreviewCarousel = ({ text, options, fetchDataFrom, first }) => {
   const [time, setTime] = useState("day");

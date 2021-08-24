@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import languageContext from "../context/languageContext";
 import MenuBtnContext from "../context/menuBtnContext";
 import pageContext from "../context/pageContext";
-import "./ButtonsCatalog.scss";
+import "../sass/ButtonsCatalog.scss";
 
 const ButtonsCatalog = ({ first }) => {
   const { texts } = useContext(languageContext);

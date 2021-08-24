@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import { API_DATA } from "../App";
-import "./CardItem.scss";
+import "../sass/CardItem.scss";
 
 const CardItem = ({ title, poster, voteAverage, name, catalog }) => {
   return (

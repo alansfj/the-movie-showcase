@@ -7,7 +7,7 @@ import pageContext from "../context/pageContext";
 import ButtonsCatalog from "./ButtonsCatalog";
 import CardItem from "./CardItem";
 import Loader from "./Loader";
-import "./PreviewCatalog.scss";
+import "../sass/PreviewCatalog.scss";
 
 const PreviewCatalog = () => {
   const location = useLocation();
