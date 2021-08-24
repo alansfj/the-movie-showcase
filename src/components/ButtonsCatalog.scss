@@ -1,6 +1,7 @@
 .btns-container {
   text-align: center;
   position: relative;
+  margin-top: 20px;
 
   & > .invisible {
     height: 1rem;
@@ -15,6 +16,7 @@
     border: none;
     border-radius: 3px;
     cursor: pointer;
+    transform: translate(-50%, -50%);
   }
 
   & > .actual-btn {
@@ -22,6 +24,7 @@
     cursor: auto;
     position: absolute;
     left: calc(50%);
+    // transform: translate(-50%, -50%);
   }
 
   & > .m1 {
@@ -76,15 +79,51 @@
 
   & > .previous {
     position: absolute;
-    left: calc(50% - 352px);
+    left: calc(50% - 320px);
   }
 
   & > .next {
     position: absolute;
-    left: calc(50% + 310px);
+    left: calc(50% + 330px);
   }
 }
 
 button:hover {
   background-color: #ffd700;
+}
+
+@media screen and (max-width: 810px) {
+  .btns-container > .previous {
+    display: none;
+  }
+
+  .btns-container > .next {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 636px) {
+  .btns-container > .first {
+    display: none;
+  }
+
+  .btns-container > .last {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .btns-container > .m4 {
+    display: none;
+  }
+
+  .btns-container > .p4 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 482px) {
+  .menu-btn-margin {
+    margin-top: 140px;
+  }
 }

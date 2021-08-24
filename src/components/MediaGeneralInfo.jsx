@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { API_DATA } from "../App";
 import languageContext from "../context/languageContext";
+import MenuBtnContext from "../context/menuBtnContext";
 import PageNotFound from "../pages/PageNotFound";
 import "./MediaGeneralInfo.scss";
 
@@ -8,6 +9,7 @@ const MediaGeneralInfo = ({ id, mediaType }) => {
   const [data, setData] = useState([]);
 
   const { texts, language } = useContext(languageContext);
+  const { isMenuBtnDisplayed } = useContext(MenuBtnContext);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,8 +19,6 @@ const MediaGeneralInfo = ({ id, mediaType }) => {
         }&language=${language === "es" ? "es-MX" : language}`
       );
       const res_json = await res.json();
-
-      // console.log(res_json);
 
       setData(res_json);
     };
@@ -32,7 +32,9 @@ const MediaGeneralInfo = ({ id, mediaType }) => {
         <PageNotFound />
       ) : (
         <div
-          className="container-media-general-info"
+          className={`${
+            !isMenuBtnDisplayed && "margin-top"
+          } container-media-general-info`}
           style={{
             backgroundImage: `url(${API_DATA.API_IMG_BASE_URL}original/${data.backdrop_path})`,
             backgroundSize: "cover",

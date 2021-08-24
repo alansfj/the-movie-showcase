@@ -7,7 +7,7 @@ const Homepage = () => {
 
   return (
     <div className="main-content">
-      <PreviewCarousel text={texts.trending} options />
+      <PreviewCarousel text={texts.trending} options first />
       <PreviewCarousel
         text={texts.votedMovies}
         fetchDataFrom="https://api.themoviedb.org/3/discover/movie/?sort_by=vote_count.desc"

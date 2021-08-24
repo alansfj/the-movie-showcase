@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import languageContext from "../context/languageContext";
+import MenuBtnContext from "../context/menuBtnContext";
 import pageContext from "../context/pageContext";
 import "./ButtonsCatalog.scss";
 
-const ButtonsCatalog = () => {
+const ButtonsCatalog = ({ first }) => {
   const { texts } = useContext(languageContext);
   const { page, setPage } = useContext(pageContext);
+  const { isMenuBtnDisplayed } = useContext(MenuBtnContext);
 
   const handleClick = (e, num = 0, isFirst = false) => {
     if (num === 500) {
@@ -19,7 +21,11 @@ const ButtonsCatalog = () => {
   };
 
   return (
-    <div className="btns-container">
+    <div
+      className={`${
+        first && !isMenuBtnDisplayed && "menu-btn-margin"
+      } btns-container`}
+    >
       <div className="invisible"></div>
       {page > 1 && (
         <button onClick={e => handleClick(e, -1)} className="previous">

@@ -1,18 +1,16 @@
 .container-media-general-info {
-  // padding: 2rem 4rem;
   border-radius: 2rem;
   margin-top: 2rem;
 }
 
 .backdrop-img {
   width: 100%;
-
-  //   opacity: 0.5;
 }
 
 .poster-img {
   border-radius: 2rem;
   border: gold 5px solid;
+  max-width: 300px;
 }
 
 .img-filter {
@@ -41,7 +39,6 @@
 
 .media-info {
   margin: 0 auto 0 2rem;
-  // margin-left: 2rem;
 }
 
 .media-genres {
@@ -61,4 +58,32 @@
 .tagline {
   font-style: italic;
   opacity: 0.7;
+}
+
+@media screen and (max-width: 1024px) {
+  .container-poster-info {
+    flex-direction: column;
+  }
+
+  .poster-img {
+    align-self: center;
+  }
+
+  .media-info {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 482px) {
+  .margin-top {
+    margin-top: 140px;
+  }
+
+  .poster-img {
+    max-width: 200px;
+  }
+
+  .img-filter {
+    padding: 1.5rem;
+  }
 }

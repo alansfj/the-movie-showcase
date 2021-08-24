@@ -19,7 +19,6 @@ body {
 a {
   text-decoration: none;
   color: black;
-  /* max-width: 185px; */
 }
 
 .main-content {
@@ -31,4 +30,10 @@ a {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+@media screen and (max-width: 984px) {
+  .main-content {
+    width: 90%;
+  }
 }

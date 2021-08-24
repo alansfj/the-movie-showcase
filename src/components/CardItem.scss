@@ -17,8 +17,6 @@
   text-align: center;
   cursor: pointer;
   max-width: 188px;
-  // width: 30%;
-  // position: absolute;
 }
 
 .catalog {
@@ -43,11 +41,18 @@
   position: relative;
 }
 
-// .position-absolute {
-//   position: absolute;
-//   top: 50%;
-//   left: 50px;
-//   cursor: default;
-//   border: gold solid 3px;
-//   transform: translateY(-50%);
-// }
+@media screen and (max-width: 840px) {
+  .container {
+    max-width: 160px;
+  }
+
+  .carousel-img {
+    max-width: 160px;
+  }
+}
+
+@media screen and (max-width: 482px) {
+  .container {
+    margin-left: 0;
+  }
+}

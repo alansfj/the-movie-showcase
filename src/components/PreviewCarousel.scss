@@ -27,6 +27,11 @@
   cursor: pointer;
   border-radius: 5px;
   padding: 5px 15px;
+
+  &:hover {
+    background-color: gold;
+    color: black;
+  }
 }
 
 .option-chosed {
@@ -57,12 +62,8 @@
 }
 
 .hidden {
-  // opacity: 0;
   visibility: hidden;
   cursor: default;
-  // &:hover {
-  //   opacity: 0;
-  // }
 }
 
 /* Shrink */
@@ -82,4 +83,27 @@
 .hvr-shrink:active {
   -webkit-transform: scale(0.9);
   transform: scale(0.9);
+}
+
+@media screen and (max-width: 560px) {
+  .carousel-header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .carousel-options {
+    margin-bottom: 15px;
+  }
+}
+
+@media screen and (max-width: 482px) {
+  .first-carousel {
+    margin-top: 120px;
+  }
+
+  .time-options,
+  .media-type-options {
+    display: flex;
+    flex-direction: column;
+  }
 }

@@ -6,6 +6,7 @@ import Homepage from "./pages/Homepage";
 import Moviepage from "./pages/Moviepage";
 import { LanguageProvider } from "./context/languageContext";
 import { PageProvider } from "./context/pageContext";
+import { MenuBtnProvider } from "./context/menuBtnContext";
 
 export const API_DATA = {
   API_BASE_URL: "https://api.themoviedb.org/3",
@@ -21,15 +22,20 @@ function App() {
     <div className="app">
       <LanguageProvider>
         <PageProvider>
-          <Router>
-            <Header />
-            <Switch>
-              <Route exact path="/" component={Homepage} />
-              <Route path="/:media_type/:mediaId_Title" component={Moviepage} />
-              <Route path="/:media_type" component={Catalog} />
-            </Switch>
-            <Footer />
-          </Router>
+          <MenuBtnProvider>
+            <Router>
+              <Header />
+              <Switch>
+                <Route exact path="/" component={Homepage} />
+                <Route
+                  path="/:media_type/:mediaId_Title"
+                  component={Moviepage}
+                />
+                <Route path="/:media_type" component={Catalog} />
+              </Switch>
+              <Footer />
+            </Router>
+          </MenuBtnProvider>
         </PageProvider>
       </LanguageProvider>
     </div>

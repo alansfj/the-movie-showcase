@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { API_DATA } from "../App";
 import languageContext from "../context/languageContext";
+import MenuBtnContext from "../context/menuBtnContext";
 import pageContext from "../context/pageContext";
 import ButtonsCatalog from "./ButtonsCatalog";
 import CardItem from "./CardItem";
@@ -14,6 +15,7 @@ const PreviewCatalog = () => {
 
   const { page } = useContext(pageContext);
   const { language } = useContext(languageContext);
+  const { isMenuBtnDisplayed } = useContext(MenuBtnContext);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,9 +35,11 @@ const PreviewCatalog = () => {
 
   return (
     <div>
-      <ButtonsCatalog />
+      <ButtonsCatalog first />
 
-      <div className="grid-container">
+      <div
+        className={`${!isMenuBtnDisplayed && "menu-btn-margin"} grid-container`}
+      >
         {data.length === 20 ? (
           data.map((el, i) => (
             <Link
