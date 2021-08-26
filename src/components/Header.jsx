@@ -15,7 +15,9 @@ const Header = () => {
   return (
     <div className="header">
       <div className="header-container main-content">
-        <div className={`${isMenuBtnDisplayed && "display-menu"} catalog-btns`}>
+        <div
+          className={`${isMenuBtnDisplayed ? "display-menu" : ""} catalog-btns`}
+        >
           <Link
             to="/"
             className={`${location.pathname === "/" && "option-chosed"}`}
@@ -38,7 +40,7 @@ const Header = () => {
           </Link>
         </div>
         <button
-          className={isMenuBtnDisplayed && "menu-btn"}
+          className={isMenuBtnDisplayed ? "menu-btn" : ""}
           onClick={() => setIsMenuBtnDisplayed(!isMenuBtnDisplayed)}
         >
           Menu
