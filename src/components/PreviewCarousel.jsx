@@ -35,7 +35,7 @@ const PreviewCarousel = ({ text, options, fetchDataFrom, first }) => {
         );
       } else {
         res = await fetch(
-          `${fetchDataFrom}&api_key=${API_DATA.API_KEY}&language=${language}`
+          `https://${fetchDataFrom}&api_key=${API_DATA.API_KEY}&language=${language}`
         );
       }
 
