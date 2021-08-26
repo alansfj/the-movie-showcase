@@ -10,11 +10,11 @@ const Homepage = () => {
       <PreviewCarousel text={texts.trending} options first />
       <PreviewCarousel
         text={texts.votedMovies}
-        fetchDataFrom="api.themoviedb.org/3/discover/movie/?sort_by=vote_count.desc"
+        fetchDataFrom="api.themoviedb.org/3/discover/movie?sort_by=vote_count.desc"
       />
       <PreviewCarousel
         text={texts.votedTv}
-        fetchDataFrom="api.themoviedb.org/3/discover/tv/?sort_by=vote_count.desc"
+        fetchDataFrom="api.themoviedb.org/3/discover/tv?sort_by=vote_count.desc"
       />
     </div>
   );
