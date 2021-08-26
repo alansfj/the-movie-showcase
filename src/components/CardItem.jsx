@@ -8,7 +8,7 @@ const CardItem = ({ title, poster, voteAverage, name, catalog }) => {
       <img
         src={
           poster
-            ? `${API_DATA.API_IMG_BASE_URL}w185/${poster}`
+            ? `${API_DATA.API_SECURE_IMG_BASE_URL}w185/${poster}`
             : `https://via.placeholder.com/185x278.png?text=No+Image`
         }
         alt={title}
